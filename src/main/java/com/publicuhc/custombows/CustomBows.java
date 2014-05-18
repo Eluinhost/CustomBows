@@ -19,20 +19,10 @@ import org.bukkit.util.Vector;
 
 public class CustomBows extends JavaPlugin implements Listener{
 
-    private static final String SHOTGUN_NAME = ChatColor.GOLD+"Shotgun";
-
-    public static Plugin getInstance() {
-        return Bukkit.getPluginManager().getPlugin("custombows");
-    }
-
     @Override
 	public void onEnable(){
         getServer().getPluginManager().registerEvents(this, this);
 	}
-
-    public boolean isShotgunBow(ItemStack stack){
-        return stack.getType() == Material.BOW && stack.getItemMeta().getDisplayName().equals(SHOTGUN_NAME);
-    }
 
 	@EventHandler
 	public void onProjectileLaunchEvent(ProjectileLaunchEvent ple){
@@ -118,25 +108,5 @@ public class CustomBows extends JavaPlugin implements Listener{
         ItemStack anArrow = new ItemStack(Material.ARROW,1);
 
         holder.getInventory().addItem(bowStack,anArrow);
-    }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String Label, String[] args){
-        if(command.getName().equalsIgnoreCase("givebow")){
-            if(args.length != 1){
-                sender.sendMessage(ChatColor.RED+"/givebow <player>");
-                return true;
-            }
-            Player p = Bukkit.getPlayerExact(args[0]);
-            if(p == null){
-                sender.sendMessage(ChatColor.RED+"Invalid player");
-                return true;
-            }
-            giveBowAndArrow(p);
-
-            sender.sendMessage(ChatColor.GOLD+"Bow given");
-            return true;
-        }
-        return false;
     }
 }
