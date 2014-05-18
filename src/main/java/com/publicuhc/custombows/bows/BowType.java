@@ -1,6 +1,7 @@
 package com.publicuhc.custombows.bows;
 
 import com.publicuhc.custombows.arrows.ArrowBehaviour;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,4 +18,20 @@ public abstract class BowType {
     }
 
     public abstract String getType();
+
+    @Override
+    public final boolean equals(Object object) {
+        if(!(object instanceof BowType)) {
+            return false;
+        }
+
+        BowType type = (BowType) object;
+
+        return type.getType().equals(getType());
+    }
+
+    @Override
+    public final int hashCode(){
+        return new HashCodeBuilder(17, 31).append(getType()).toHashCode();
+    }
 }
