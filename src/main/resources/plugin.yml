@@ -1,0 +1,17 @@
+name: CustomBows
+main: com.publicuhc.custombows.CustomBows
+version: 1.0
+description: Custom Bow types
+author: ghowden/Eluinhost
+website: eluinhost.co.uk
+database: false
+commands:
+    givebow:
+      description: gives a shotgun bow to a player
+      usage: /givebow <player>
+      permission: ShotgunBow.givebow
+      permission-message: You don't have <permission>
+permissions:
+  ShotgunBow.givebow:
+    description: allow to use the givebow command
+    default: op
