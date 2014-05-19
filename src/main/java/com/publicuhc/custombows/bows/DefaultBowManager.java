@@ -4,7 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.projectiles.ProjectileSource;
@@ -12,7 +11,7 @@ import org.bukkit.projectiles.ProjectileSource;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DefaultBowManager implements BowManager, Listener {
+public class DefaultBowManager implements BowManager {
 
     private Set<BowType> m_types = new HashSet<BowType>();
 

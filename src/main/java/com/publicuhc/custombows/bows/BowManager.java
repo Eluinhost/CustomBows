@@ -1,9 +1,10 @@
 package com.publicuhc.custombows.bows;
 
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.inventory.ItemStack;
 
-public interface BowManager {
+public interface BowManager extends Listener {
 
     /**
      * Add the bow type to the list, overrides the existing bow type if they are the same
