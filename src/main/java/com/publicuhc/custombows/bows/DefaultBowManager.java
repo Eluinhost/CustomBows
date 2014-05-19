@@ -58,7 +58,17 @@ public class DefaultBowManager implements BowManager {
             return;
         }
 
-        //TODO find the bow type and apply it's effects
+        BowType type = getBowTypeForItemStack(held);
+        //if it's not a special bow let the event continue
+        if(null == type) {
+            return;
+        }
+
+        //cancel the launch to make our own
+        ple.setCancelled(true);
+
+        type.triggerShot(arrow, shooter);
+        arrow.remove();
     }
 
     @Override
