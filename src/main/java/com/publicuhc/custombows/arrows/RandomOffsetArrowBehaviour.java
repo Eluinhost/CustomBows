@@ -2,8 +2,6 @@ package com.publicuhc.custombows.arrows;
 
 import com.publicuhc.custombows.PitchYaw;
 import org.bukkit.entity.Arrow;
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
 import java.util.Random;
@@ -16,12 +14,10 @@ public class RandomOffsetArrowBehaviour implements ArrowBehaviour {
     private final float m_yawVariance;
     private final float m_pitchVariance;
     private final Random m_random = new Random();
-    private final Plugin m_plugin;
 
-    public RandomOffsetArrowBehaviour(Plugin plugin, float yawVariance, float pitchVariance) {
+    public RandomOffsetArrowBehaviour(float yawVariance, float pitchVariance) {
         m_yawVariance = yawVariance;
         m_pitchVariance = pitchVariance;
-        m_plugin = plugin;
     }
 
     private Vector addVariance(Vector v){
@@ -73,6 +69,5 @@ public class RandomOffsetArrowBehaviour implements ArrowBehaviour {
     @Override
     public void processArrow(Arrow arrow) {
         arrow.setVelocity(addVariance(arrow.getVelocity()));
-        arrow.setMetadata("ArrowType", new FixedMetadataValue(m_plugin, "SHOTGUN"));
     }
 }

@@ -20,7 +20,7 @@ public class CustomBows extends FrameworkJavaPlugin {
         getServer().getPluginManager().registerEvents(m_manager, this);
 
         ShotgunBow shotgun = new ShotgunBow(this);
-        shotgun.addBehaviour(new RandomOffsetArrowBehaviour(this, 10, 10));
+        shotgun.addBehaviour(new RandomOffsetArrowBehaviour(10, 10));
         shotgun.addBehaviour(new FireArrowBehaviour());
 
         m_manager.addBowType(shotgun);
