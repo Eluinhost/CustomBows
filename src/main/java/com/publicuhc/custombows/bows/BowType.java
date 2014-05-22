@@ -53,7 +53,7 @@ public abstract class BowType {
 
     @Override
     public final boolean equals(Object object) {
-        if(!(object instanceof BowType)) {
+        if(null == object || !(object instanceof BowType)) {
             return false;
         }
 
