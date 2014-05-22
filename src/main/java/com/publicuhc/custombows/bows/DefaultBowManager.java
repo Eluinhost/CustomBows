@@ -1,5 +1,7 @@
 package com.publicuhc.custombows.bows;
 
+import com.publicuhc.custombows.events.CustomBowShootEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.LivingEntity;
@@ -67,8 +69,15 @@ public class DefaultBowManager implements BowManager {
         //cancel the launch to make our own
         ple.setCancelled(true);
 
+        CustomBowShootEvent event = new CustomBowShootEvent(arrow, type);
+
+        Bukkit.getPluginManager().callEvent(event);
+
+        if(event.isCancelled()) {
+            return;
+        }
+
         type.triggerShot(arrow, shooter);
-        arrow.remove();
     }
 
     @Override
