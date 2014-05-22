@@ -1,7 +1,6 @@
 package com.publicuhc.custombows.bows;
 
 import com.publicuhc.custombows.arrows.ArrowBehaviour;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -49,21 +48,5 @@ public abstract class BowType {
 
     public FixedMetadataValue getBowTypeMetadata() {
         return new FixedMetadataValue(m_plugin, getType());
-    }
-
-    @Override
-    public final boolean equals(Object object) {
-        if(null == object || !(object instanceof BowType)) {
-            return false;
-        }
-
-        BowType type = (BowType) object;
-
-        return type.getType().equals(getType());
-    }
-
-    @Override
-    public final int hashCode(){
-        return new HashCodeBuilder(17, 31).append(getType()).toHashCode();
     }
 }

@@ -8,12 +8,12 @@ import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.projectiles.ProjectileSource;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DefaultBowManager implements BowManager {
 
-    private Set<BowType> m_types = new HashSet<BowType>();
+    private List<BowType> m_types = new ArrayList<BowType>();
 
     @Override
     public void addBowType(BowType type) {
