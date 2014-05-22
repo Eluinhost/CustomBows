@@ -73,6 +73,7 @@ public class DefaultBowManager implements BowManager {
 
     @Override
     public BowType getBowTypeForItemStack(ItemStack item) {
+        //TODO
         return null;
     }
 }
